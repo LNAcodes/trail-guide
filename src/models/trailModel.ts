@@ -27,11 +27,14 @@ INNER JOIN regions ON trails.region_id = regions.id,);
 instead of listing every column from trails > "shortcut" trails.*, and no collison with id (in both interfaces), because we don't call id, only name and country
   */
   return await db.all<Trail[]>(
-    "SELECT trails.*, regions.name * FROM trails INNER JOIN regions ON trails.region_id = regions.id",
+    "SELECT trails.*, regions.name AS region_name, regions.country AS region_country FROM trails INNER JOIN regions ON trails.region_id = regions.id",
   );
 }
 
 export async function getTrailBySlug(slug: string): Promise<Trail | undefined> {
   const db = getDB();
-  return await db.get<Trail>("SELECT * FROM trails WHERE slug = ? ", slug);
+  return await db.get<Trail>(
+    "SELECT trails.*, regions.name AS region_name, regions.country AS region_country FROM trails INNER JOIN regions ON trails.region_id = regions.id WHERE slug = ? ",
+    slug,
+  );
 }

@@ -26,6 +26,6 @@
     "start": "bun run src/app.ts",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:seed": "sqlite3 data/trail-guide.db < data/seeddb.sql"
+    "db:seed": "sqlite3 data/trail-guide.db < data/seed.sql"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "views"],
+  "ext": "ts,njk,css,html",
+  "ignore": ["node_modules", ".git"],
+  "exec": "bun run src/app.ts"
+}

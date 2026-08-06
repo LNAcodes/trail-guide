@@ -19,8 +19,8 @@ app.use(express.static("public"));
 // useful way when more than one static file e.g. + /uploads
 
 app.get("/", async (req, res) => {
-  const trails = await getAllTrails();
-  console.log(trails);
+  // const trails = await getAllTrails();
+  // console.log(trails);
   res.render("_base.njk", { title: "Home" });
 });
 

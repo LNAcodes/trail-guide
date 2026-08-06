@@ -50,19 +50,19 @@ The data model has two tables: `regions` (e.g. "Bavarian Alps") and `trails`, wh
 
 ## Project structure
 
-\`\`\`
+```
 src/
-app.ts
-routes/
-controllers/
-models/
-middleware/
+  app.ts
+  routes/
+  controllers/
+  models/
+  middleware/
 views/
-macros/
-admin/
+  macros/
+  admin/
 public/
 data/
-\`\`\`
+```
 
 ## API
 
@@ -77,3 +77,7 @@ All write endpoints (`POST`, `PATCH`, `DELETE`) require an `x-api-key` header ma
 | POST   | `/api/trails`               | Create a trail                                                  |
 | PATCH  | `/api/trails/:id`           | Update a trail                                                  |
 | DELETE | `/api/trails/:id`           | Delete a trail                                                  |
+
+```
+
+```

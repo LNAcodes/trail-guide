@@ -13,8 +13,9 @@ export async function getAllRegions(): Promise<Region[]> {
   return await db.all<Region[]>("SELECT * FROM regions");
 }
 
-export async function getRegionsBySlug(
+export async function getRegionBySlug(
   slug: string,
 ): Promise<Region | undefined> {
-  const regions = await getAllRegions();
+  const db = getDB();
+  return await db.get<Region>("SELECT * FROM regions WHERE slug = ? ", slug);
 }

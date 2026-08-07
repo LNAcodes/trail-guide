@@ -1,0 +1,22 @@
+{% extends "_base.njk" %}
+{% block content %}
+<article>
+<header>
+<h2>{{ trail.title }}</h2>
+<a>{{ trail.created_at }}</a>
+<p>
+<mark>{{ trail.difficulty }}</mark>
+&nbsp;·&nbsp;
+{{ trail.distance_km }} km
+&nbsp;·&nbsp;
+{{ trail.region_name }}, {{ trail.region_country }}
+</p>
+</header>
+
+{{ trail.description | safe }}
+</article>
+<p><a href="/">&larr; Back to all trails</a></p>
+{% endblock content %}
+
+
+{# description already contains HTML from seed.sql (<p>...</p>); "safe" stops Nunjucks from escaping those tags and printing them as plain text #}

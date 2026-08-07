@@ -1,0 +1,12 @@
+{% extends "_base.njk" %}
+{% from "macros/trailCard.njk" import trailCard %}
+
+{% block content %}
+<h2>All Trails</h2>
+{% for trail in trails %}
+    {{ trailCard(trail) }}
+  {% endfor %}
+{% endblock content %}
+
+{# for-loop: goes 1x per Trail through trails-Array,
+    Controller (listTrails) passed it with res.render("index", { trails }) #}

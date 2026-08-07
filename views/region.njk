@@ -1,0 +1,19 @@
+{% extends "_base.njk" %}
+{% from "macros/trailCard.njk" import trailCard %}
+
+{% block content %}
+
+{# region + trails come from showRegion in regionController.ts #}
+
+<h2>{{ region.name }}</h2>
+<p>{{ region.country }}</p>
+<p>{{ region.description }}</p>
+
+<h3>Trails in this region</h3>
+{% for trail in trails %}
+{{ trailCard(trail) }}
+{% endfor %}
+{% endblock content %}
+
+
+{# trailCard macro: shows a difficulty badge + region info, but region_name/region_country are only present for trails from getAllTrails/getTrailBySlug (they have the JOIN); trails from getTrailsByRegionId don't include them, so that part just stays empty here #}

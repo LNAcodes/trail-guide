@@ -4,10 +4,11 @@ import {
   getTrailBySlug,
   getTrailsByRegionId,
 } from "../models/trailModel";
+import { formatDate } from "../utils/formatDate";
 
 export async function listTrails(req: Request, res: Response) {
   const trails = await getAllTrails();
-  res.render("trails", { trails });
+  res.render("index", { trails });
 }
 
 export async function showTrail(req: Request<{ slug: string }>, res: Response) {
@@ -18,5 +19,8 @@ export async function showTrail(req: Request<{ slug: string }>, res: Response) {
     return;
   }
 
-  res.render("trail", { trail });
+  const formattedTrail = { ...trail, created_at: formatDate(trail.created_at) };
+  // console.log(formattedTrail);
+
+  res.render("trail", { trail: formattedTrail });
 }

@@ -1,0 +1,21 @@
+{% macro trailCard(trail) %}
+<article>
+<header>
+<h3>
+<a href="/trails/{{ trail.slug }}">{{ trail.title }}</a>
+</h3>
+</header>
+<p>
+<mark>{{ trail.difficulty }}</mark>
+&nbsp;·&nbsp;{{ trail.distance_km }} km
+</p>
+
+{% if trail.region_name %}
+<p>
+<small>{{ trail.region_name }}, {{ trail.region_country }}</small>
+</p>
+{% endif %}
+</article>
+{% endmacro %}
+
+{# &nbsp;·&nbsp = non breaking space > space dot space #}

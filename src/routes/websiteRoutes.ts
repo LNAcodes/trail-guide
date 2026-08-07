@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { listTrails, showTrail } from "../controllers/trailController";
+import { listRegions, showRegion } from "../controllers/regionController";
 
 const router = Router();
 

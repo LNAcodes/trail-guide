@@ -1,8 +1,8 @@
 import express from "express";
 import nunjucks from "nunjucks";
 import { connectDB, closeDB } from "./models/db";
-import { getAllTrails } from "./models/trailModel";
 import websiteRoutes from "./routes/websiteRoutes";
+import { logger, ensureLogFile } from "./middleware/logger";
 
 const app = express();
 const port = Number(process.env.PORT) || 3000;
@@ -19,12 +19,7 @@ app.use(express.static("public"));
 // app.use("/public", express.static("public"));
 // useful way when more than one static file e.g. + /uploads
 
-// app.get("/", async (req, res) => {
-//   // const trails = await getAllTrails();
-//   // console.log(trails);
-//   res.render("_base.njk", { title: "Home" });
-// });
-
+app.use(logger);
 app.use("/", websiteRoutes);
 
 async function startServer() {

@@ -1,0 +1,15 @@
+info:
+  name: AdminList w edit and delete buttons
+  type: http
+  seq: 9
+
+http:
+  method: GET
+  url: http://localhost:3000/admin
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

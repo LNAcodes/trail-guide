@@ -3,6 +3,7 @@ import nunjucks from "nunjucks";
 import { connectDB, closeDB } from "./models/db";
 import websiteRoutes from "./routes/websiteRoutes";
 import adminRoutes from "./routes/adminRoutes";
+import apiRoutes from "./routes/apiRoutes";
 import { logger, ensureLogFile } from "./middleware/logger";
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(express.static("public"));
 app.use(logger);
 app.use("/", websiteRoutes);
 app.use(adminRoutes);
+app.use(apiRoutes);
 
 async function startServer() {
   await connectDB();

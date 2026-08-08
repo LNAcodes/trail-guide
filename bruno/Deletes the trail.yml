@@ -1,0 +1,19 @@
+info:
+  name: Deletes the trail
+  type: http
+  seq: 32
+
+http:
+  method: DELETE
+  url: http://localhost:3000/api/trails/:id
+  params:
+    - name: id
+      value: ""
+      type: path
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

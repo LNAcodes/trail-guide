@@ -5,11 +5,28 @@ info:
 
 http:
   method: POST
-  url: http://localhost:3000/admin/trails/:id
-  params:
-    - name: id
-      value: ""
-      type: path
+  url: http://localhost:3000/admin/trails/2
+  body:
+    type: form-urlencoded
+    data:
+      - name: title
+        value: title
+        description: test
+      - name: region_id
+        value: region_id
+        description: test
+      - name: difficulty
+        value: difficulty
+        description: easy
+      - name: distance_km
+        value: distance_km
+        description: "8"
+      - name: description
+        value: description
+        description: test
+      - name: image_url
+        value: image_url
+        description: x
   auth: inherit
 
 settings:

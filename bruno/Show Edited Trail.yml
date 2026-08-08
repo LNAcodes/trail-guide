@@ -5,11 +5,7 @@ info:
 
 http:
   method: GET
-  url: http://localhost:3000/admin/trails/:id/edit
-  params:
-    - name: id
-      value: ""
-      type: path
+  url: http://localhost:3000/admin/trails/2/edit
   auth: inherit
 
 settings:

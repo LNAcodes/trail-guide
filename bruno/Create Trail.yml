@@ -6,6 +6,21 @@ info:
 http:
   method: POST
   url: http://localhost:3000/admin/trails
+  body:
+    type: form-urlencoded
+    data:
+      - name: title
+        value: testBruno
+      - name: region_id
+        value: "4"
+      - name: difficulty
+        value: easy
+      - name: distance_km
+        value: "7"
+      - name: description
+        value: testBruno
+      - name: image_url
+        value: X
   auth: inherit
 
 settings:

@@ -1,7 +1,7 @@
 import { type Request, type Response } from "express";
 
 import { getAllRegions, getRegionBySlug } from "../models/regionModel";
-import { getAllTrails, getTrailsByRegionId } from "../models/trailModel";
+import { getTrailsByRegionId } from "../models/trailModel";
 
 export async function listRegions(req: Request, res: Response) {
   const regions = await getAllRegions();
@@ -18,7 +18,6 @@ export async function showRegion(
     res.status(404).send("Region not found");
     return;
   }
-
   const trails = await getTrailsByRegionId(region.id!);
   res.render("region", { region, trails });
 }

@@ -1,0 +1,32 @@
+{% extends "_base.njk" %}
+{% block content %}
+
+<h2>Admin: Trails</h2>
+
+<p><a href="/admin/trails/new">+ New Trail</a></p>
+
+<table>
+<thead>
+<tr><th>Title</th><th>Region</th><th>Difficulty</th><th></th></tr>
+</thead>
+
+<tbody>
+{% for trail in trails %}
+
+<tr>
+<td>{{ trail.title }}</td>
+<td>{{ trail.region_name }}</td>
+<td>{{ trail.difficulty }}</td>
+<td>
+<a href="/admin/trails/{{ trail.id }}/edit">Edit</a>
+<form method="POST" action="/admin/trails/{{ trail.id }}/delete" style="display:inline">
+<button type="submit">Delete</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+{% endblock content %}

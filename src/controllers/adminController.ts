@@ -22,6 +22,7 @@ export async function handleShowNewTrail(_req: Request, res: Response) {
 }
 
 export async function handleCreateTrail(req: Request, res: Response) {
+  // console.log("BODY:", req.body);
   const newTrail = {
     region_id: Number(req.body.region_id),
     title: req.body.title,

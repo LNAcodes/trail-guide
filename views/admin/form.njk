@@ -1,0 +1,44 @@
+{% extends "_base.njk" %}
+{% block content %}
+<h2>{% if trail %}Edit Trail{% else %}New Trail{% endif %}</h2>
+
+<form method="POST" action="{% if trail %}/admin/trails/{{ trail.id }}{% else %}/admin/trails{% endif %}">
+
+<label>Title
+<input type="text" name="title" value="{{ trail.title if trail else '' }}" required>
+</label>
+
+<label>Region
+<select name="region_id" required>
+{% for region in regions %}
+<option value="{{ region.id }}" {% if trail and trail.region_id == region.id %}selected{% endif %}>
+{{ region.name }}
+</option>
+{% endfor %}
+</select>
+</label>
+
+<label>Difficulty
+<select name="difficulty" required>
+<option value="easy" {% if trail and trail.difficulty == 'easy' %}selected{% endif %}>Easy</option>
+<option value="moderate" {% if trail and trail.difficulty == 'moderate' %}selected{% endif %}>Moderate</option>
+<option value="hard" {% if trail and trail.difficulty == 'hard' %}selected{% endif %}>Hard</option>
+</select>
+</label>
+
+<label>Distance (km)
+<input type="number" step="0.1" name="distance_km" value="{{ trail.distance_km if trail else '' }}" required>
+</label>
+
+<label>Image URL
+<input type="text" name="image_url" value="{{ trail.image_url if trail else '' }}">
+</label>
+
+<label>Description
+<textarea name="description">{{ trail.description if trail else '' }}</textarea>
+</label>
+
+<button type="submit">Save</button>
+
+</form>
+{% endblock content %}

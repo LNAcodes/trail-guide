@@ -11,6 +11,7 @@ const port = Number(process.env.PORT) || 3000;
 app.set("view engine", "njk");
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 nunjucks.configure("views", {
   autoescape: true,

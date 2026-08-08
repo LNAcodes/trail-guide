@@ -5,11 +5,7 @@ info:
 
 http:
   method: GET
-  url: http://localhost:3000/api/trails/:slug
-  params:
-    - name: slug
-      value: ""
-      type: path
+  url: http://localhost:3000/api/trails/partnach-gorge-loop
   auth: inherit
 
 settings:
